@@ -1,0 +1,35 @@
+{
+    "version": 1,
+    "name": "UIControls",
+    "maps": [
+        {
+            "name": "UI",
+            "id": "9280c9a6-f3fb-498b-9247-67b65980171d",
+            "actions": [
+                {
+                    "name": "ToggleCharacterPanel",
+                    "type": "Button",
+                    "id": "f7ae28e9-99a4-46da-9850-9101d7a67964",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8cfa7b78-87e6-442a-b656-7be1c42f2584",
+                    "path": "<Keyboard>/p",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleCharacterPanel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

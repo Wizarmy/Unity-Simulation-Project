@@ -1,0 +1,2433 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &124942865603158566
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6257046121823017331}
+  - component: {fileID: 3750570472027523212}
+  m_Layer: 0
+  m_Name: NatureDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6257046121823017331
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124942865603158566}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4582770917060497364}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3750570472027523212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124942865603158566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8f2c53216063f4e83a579b1162edcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageAttribute
+  <AttributeName>k__BackingField: NatureDamage
+  <AttributeDescription>k__BackingField: Nature Damage
+  <AttributeType>k__BackingField: 7
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+--- !u!1 &276360877342482473
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5206898467432956701}
+  - component: {fileID: 3567052745810729123}
+  m_Layer: 0
+  m_Name: CarryingCapacity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5206898467432956701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276360877342482473}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6273745978420826123}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3567052745810729123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276360877342482473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e608cf5456d3246bb8a057e825f51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DerivedAttribute
+  <AttributeName>k__BackingField: CarryingCapacity
+  <AttributeDescription>k__BackingField: The carrying capacity
+  <AttributeType>k__BackingField: 5
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <DerivedSources>k__BackingField:
+  - <Source>k__BackingField: {fileID: 7467098112959264677}
+    <Multiplier>k__BackingField: 3
+--- !u!1 &404129762495995363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4146950067384919736}
+  - component: {fileID: 4039165784331792006}
+  m_Layer: 0
+  m_Name: ManaRegen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4146950067384919736
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404129762495995363}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7024624621551370726}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4039165784331792006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 404129762495995363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94773c86863191f44a8c8ef501ab0d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RegenAttribute
+  <AttributeName>k__BackingField: ManaRegen
+  <AttributeDescription>k__BackingField: Mana regeneration rate.
+  <AttributeType>k__BackingField: 3
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 1
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <DerivedSources>k__BackingField:
+  - <Source>k__BackingField: {fileID: 3707505912874220368}
+    <Multiplier>k__BackingField: 0.01
+--- !u!1 &779943063363777028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7024624621551370726}
+  m_Layer: 0
+  m_Name: RegenAttributes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7024624621551370726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779943063363777028}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3785434529905656659}
+  - {fileID: 4146950067384919736}
+  - {fileID: 3466992442318885082}
+  m_Father: {fileID: 8422565717847025451}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &800905111103894016
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8573351866708939036}
+  - component: {fileID: 393103552394117957}
+  m_Layer: 0
+  m_Name: NatureResist
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8573351866708939036
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800905111103894016}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6364455335154455717}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &393103552394117957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 800905111103894016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a4bdf232c4bf6c46925a47d9c8ec15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResistAttribute
+  <AttributeName>k__BackingField: NatureResist
+  <AttributeDescription>k__BackingField: Resistance to poison and disease
+  <AttributeType>k__BackingField: 6
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+--- !u!1 &875815720776916370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3466992442318885082}
+  - component: {fileID: 6005559976359604174}
+  m_Layer: 0
+  m_Name: EnergyRegen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3466992442318885082
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875815720776916370}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7024624621551370726}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6005559976359604174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 875815720776916370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94773c86863191f44a8c8ef501ab0d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RegenAttribute
+  <AttributeName>k__BackingField: EnergyRegen
+  <AttributeDescription>k__BackingField: Energy regeneration rate.
+  <AttributeType>k__BackingField: 3
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 1
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <DerivedSources>k__BackingField:
+  - <Source>k__BackingField: {fileID: 4196176358750152365}
+    <Multiplier>k__BackingField: 0.01
+--- !u!1 &950373644111108012
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1564669172785212990}
+  - component: {fileID: 1467553977935717889}
+  m_Layer: 0
+  m_Name: Luck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1564669172785212990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950373644111108012}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3772428236119305128}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1467553977935717889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 950373644111108012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5558b90bc6be03c4b815af55c8cdbfb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrimaryAttribute
+  <AttributeName>k__BackingField: Luck
+  <AttributeDescription>k__BackingField: Influences random events and critical chances
+  <AttributeType>k__BackingField: 2
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <CultivationAttribute>k__BackingField: {fileID: 3517869051847219180}
+--- !u!1 &1321524448041782212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4885567359660350215}
+  - component: {fileID: 7625492990010285098}
+  m_Layer: 0
+  m_Name: Agility
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4885567359660350215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321524448041782212}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3772428236119305128}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7625492990010285098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321524448041782212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5558b90bc6be03c4b815af55c8cdbfb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrimaryAttribute
+  <AttributeName>k__BackingField: Agility
+  <AttributeDescription>k__BackingField: Increases movement speed and evasion
+  <AttributeType>k__BackingField: 2
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <CultivationAttribute>k__BackingField: {fileID: 3517869051847219180}
+--- !u!1 &1671957294582494323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6364455335154455717}
+  m_Layer: 0
+  m_Name: ResistanceAttributes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6364455335154455717
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671957294582494323}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 675143359629752257}
+  - {fileID: 5726196425645932612}
+  - {fileID: 6722018536879586666}
+  - {fileID: 6058288536269093404}
+  - {fileID: 8573351866708939036}
+  - {fileID: 2690133104402582491}
+  m_Father: {fileID: 8422565717847025451}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1716041669176100806
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7276922656451124866}
+  - component: {fileID: 8707481038087044021}
+  m_Layer: 0
+  m_Name: Energy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7276922656451124866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716041669176100806}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1978958989118860664}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8707481038087044021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716041669176100806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e122b8d256abd8458ccab439dd7e87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LifeAttribute
+  <AttributeName>k__BackingField: Energy
+  <AttributeDescription>k__BackingField: Energy
+  <AttributeType>k__BackingField: 4
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <DerivedSources>k__BackingField:
+  - <Source>k__BackingField: {fileID: 4196176358750152365}
+    <Multiplier>k__BackingField: 3
+  - <Source>k__BackingField: {fileID: 3897337368604042616}
+    <Multiplier>k__BackingField: 2
+  <RegenAttribute>k__BackingField: {fileID: 6005559976359604174}
+--- !u!1 &1806275380854274357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5726196425645932612}
+  - component: {fileID: 7553245232676637499}
+  m_Layer: 0
+  m_Name: PiercingResist
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5726196425645932612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806275380854274357}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6364455335154455717}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7553245232676637499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806275380854274357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a4bdf232c4bf6c46925a47d9c8ec15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResistAttribute
+  <AttributeName>k__BackingField: PiercingResist
+  <AttributeDescription>k__BackingField: Resistance to piercing damage
+  <AttributeType>k__BackingField: 6
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+--- !u!1 &1901283423862924793
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4582770917060497364}
+  m_Layer: 0
+  m_Name: DamageAttributes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4582770917060497364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901283423862924793}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2745583382302119962}
+  - {fileID: 6695809809918622108}
+  - {fileID: 7034069564997430990}
+  - {fileID: 224277214389519758}
+  - {fileID: 6257046121823017331}
+  - {fileID: 4259172081139980229}
+  m_Father: {fileID: 8422565717847025451}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1929157176206771167
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6058288536269093404}
+  - component: {fileID: 6926715060494317765}
+  m_Layer: 0
+  m_Name: ElementalResist
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6058288536269093404
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929157176206771167}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6364455335154455717}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6926715060494317765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1929157176206771167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a4bdf232c4bf6c46925a47d9c8ec15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResistAttribute
+  <AttributeName>k__BackingField: ElementalResist
+  <AttributeDescription>k__BackingField: Resistance to fire, cold, etc
+  <AttributeType>k__BackingField: 6
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+--- !u!1 &2365695039972280255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8913698292365424813}
+  - component: {fileID: 4196176358750152365}
+  m_Layer: 0
+  m_Name: Stamina
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8913698292365424813
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2365695039972280255}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3772428236119305128}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4196176358750152365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2365695039972280255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5558b90bc6be03c4b815af55c8cdbfb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrimaryAttribute
+  <AttributeName>k__BackingField: Stamina
+  <AttributeDescription>k__BackingField: Increases endurance and energy reserves
+  <AttributeType>k__BackingField: 2
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <CultivationAttribute>k__BackingField: {fileID: 3517869051847219180}
+--- !u!1 &2490643194205344021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7034069564997430990}
+  - component: {fileID: 8461974249734442302}
+  m_Layer: 0
+  m_Name: SlashDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7034069564997430990
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490643194205344021}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4582770917060497364}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8461974249734442302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2490643194205344021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8f2c53216063f4e83a579b1162edcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageAttribute
+  <AttributeName>k__BackingField: SlashDamage
+  <AttributeDescription>k__BackingField: Slash Damage
+  <AttributeType>k__BackingField: 7
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+--- !u!1 &2504104262824710648
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3785434529905656659}
+  - component: {fileID: 618751936415047277}
+  m_Layer: 0
+  m_Name: HealthRegen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3785434529905656659
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2504104262824710648}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7024624621551370726}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &618751936415047277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2504104262824710648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94773c86863191f44a8c8ef501ab0d52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RegenAttribute
+  <AttributeName>k__BackingField: HealthRegen
+  <AttributeDescription>k__BackingField: Health regeneration rate.
+  <AttributeType>k__BackingField: 3
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 1
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <DerivedSources>k__BackingField:
+  - <Source>k__BackingField: {fileID: 3396482550663627651}
+    <Multiplier>k__BackingField: 0.01
+--- !u!1 &2910364163358988271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8652368645531174643}
+  - component: {fileID: 7767865006762547176}
+  m_Layer: 0
+  m_Name: Intelligence
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8652368645531174643
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910364163358988271}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3772428236119305128}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7767865006762547176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2910364163358988271}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5558b90bc6be03c4b815af55c8cdbfb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrimaryAttribute
+  <AttributeName>k__BackingField: Intelligence
+  <AttributeDescription>k__BackingField: Increases magical power and learning speed
+  <AttributeType>k__BackingField: 2
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <CultivationAttribute>k__BackingField: {fileID: 3517869051847219180}
+--- !u!1 &2929209838325530140
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2016124959156699499}
+  m_Layer: 0
+  m_Name: SpecialAttributes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2016124959156699499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2929209838325530140}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7079079590622136806}
+  - {fileID: 6823410238086521707}
+  m_Father: {fileID: 8422565717847025451}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3342496597298650689
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3772428236119305128}
+  m_Layer: 0
+  m_Name: PrimaryAttributes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3772428236119305128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3342496597298650689}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4885567359660350215}
+  - {fileID: 1940522735329670920}
+  - {fileID: 8628326533242551208}
+  - {fileID: 8652368645531174643}
+  - {fileID: 1564669172785212990}
+  - {fileID: 8913698292365424813}
+  - {fileID: 5367566266365000973}
+  - {fileID: 8872544584198514290}
+  - {fileID: 9062675649610588308}
+  m_Father: {fileID: 8422565717847025451}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3471243535796601132
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 675143359629752257}
+  - component: {fileID: 6044958757934102164}
+  m_Layer: 0
+  m_Name: BluntResist
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &675143359629752257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3471243535796601132}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6364455335154455717}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6044958757934102164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3471243535796601132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a4bdf232c4bf6c46925a47d9c8ec15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResistAttribute
+  <AttributeName>k__BackingField: BluntResist
+  <AttributeDescription>k__BackingField: Resistance to blunt damage
+  <AttributeType>k__BackingField: 6
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+--- !u!1 &3512677488084618399
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6695809809918622108}
+  - component: {fileID: 2304041447540998505}
+  m_Layer: 0
+  m_Name: PiercingDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6695809809918622108
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3512677488084618399}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4582770917060497364}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2304041447540998505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3512677488084618399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8f2c53216063f4e83a579b1162edcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageAttribute
+  <AttributeName>k__BackingField: PiercingDamage
+  <AttributeDescription>k__BackingField: Piercing Damage
+  <AttributeType>k__BackingField: 7
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+--- !u!1 &4099221675681355523
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6823410238086521707}
+  - component: {fileID: 3897337368604042616}
+  m_Layer: 0
+  m_Name: EntityLevel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6823410238086521707
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4099221675681355523}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2016124959156699499}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3897337368604042616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4099221675681355523}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 365f7927e2670c1459d5fcfd7a12735a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntityLevel
+  <AttributeName>k__BackingField: EntityLevel
+  <AttributeDescription>k__BackingField: Overall Entity Level
+  <AttributeType>k__BackingField: 1
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.3
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+--- !u!1 &4520276076089961707
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4259172081139980229}
+  - component: {fileID: 8266718088575228997}
+  m_Layer: 0
+  m_Name: ArcaneDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4259172081139980229
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520276076089961707}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4582770917060497364}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8266718088575228997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4520276076089961707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8f2c53216063f4e83a579b1162edcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageAttribute
+  <AttributeName>k__BackingField: ArcaneDamage
+  <AttributeDescription>k__BackingField: Arcane Damage
+  <AttributeType>k__BackingField: 7
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+--- !u!1 &4639563648060789037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2690133104402582491}
+  - component: {fileID: 7926336318212409334}
+  m_Layer: 0
+  m_Name: ArcaneResist
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2690133104402582491
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4639563648060789037}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6364455335154455717}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7926336318212409334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4639563648060789037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a4bdf232c4bf6c46925a47d9c8ec15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResistAttribute
+  <AttributeName>k__BackingField: ArcaneResist
+  <AttributeDescription>k__BackingField: Resistance to arcane and other magic
+  <AttributeType>k__BackingField: 6
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+--- !u!1 &4705982672329786114
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4450100683749565383}
+  m_Layer: 0
+  m_Name: Skills
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4450100683749565383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4705982672329786114}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8422565717847025451}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4749636273593578268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6273745978420826123}
+  m_Layer: 0
+  m_Name: DerivedAttributes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6273745978420826123
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4749636273593578268}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8340031046941935310}
+  - {fileID: 244535032447166047}
+  - {fileID: 5206898467432956701}
+  m_Father: {fileID: 8422565717847025451}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4817104342909132830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7079079590622136806}
+  - component: {fileID: 3517869051847219180}
+  m_Layer: 0
+  m_Name: Cultivation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7079079590622136806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4817104342909132830}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2016124959156699499}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3517869051847219180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4817104342909132830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0a09493332e6a94794983c2e040fb00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CultivationAttribute
+  <AttributeName>k__BackingField: Cultivation
+  <AttributeDescription>k__BackingField: Power Enhancer Attribute
+  <AttributeType>k__BackingField: 0
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 1000000
+    <LevelExpMultiplier>k__BackingField: 1.5
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+--- !u!1 &5015174983587641819
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 244535032447166047}
+  - component: {fileID: 1038436691065422044}
+  m_Layer: 0
+  m_Name: TurningSpeed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &244535032447166047
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015174983587641819}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6273745978420826123}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1038436691065422044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015174983587641819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e608cf5456d3246bb8a057e825f51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DerivedAttribute
+  <AttributeName>k__BackingField: TurningSpeed
+  <AttributeDescription>k__BackingField: The turning speed.
+  <AttributeType>k__BackingField: 5
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 120
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <DerivedSources>k__BackingField:
+  - <Source>k__BackingField: {fileID: 7625492990010285098}
+    <Multiplier>k__BackingField: 1
+--- !u!1 &5503823116257835712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5367566266365000973}
+  - component: {fileID: 7467098112959264677}
+  m_Layer: 0
+  m_Name: Strength
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5367566266365000973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503823116257835712}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3772428236119305128}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7467098112959264677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503823116257835712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5558b90bc6be03c4b815af55c8cdbfb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrimaryAttribute
+  <AttributeName>k__BackingField: Strength
+  <AttributeDescription>k__BackingField: Increases physical damage and carrying capacity
+  <AttributeType>k__BackingField: 2
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <CultivationAttribute>k__BackingField: {fileID: 3517869051847219180}
+--- !u!1 &5692192298542430464
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7370487517654387292}
+  - component: {fileID: 8984086822270535729}
+  m_Layer: 0
+  m_Name: Mana
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7370487517654387292
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692192298542430464}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1978958989118860664}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8984086822270535729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5692192298542430464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e122b8d256abd8458ccab439dd7e87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LifeAttribute
+  <AttributeName>k__BackingField: Mana
+  <AttributeDescription>k__BackingField: Mana
+  <AttributeType>k__BackingField: 4
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <DerivedSources>k__BackingField:
+  - <Source>k__BackingField: {fileID: 7767865006762547176}
+    <Multiplier>k__BackingField: 3
+  - <Source>k__BackingField: {fileID: 3897337368604042616}
+    <Multiplier>k__BackingField: 2
+  <RegenAttribute>k__BackingField: {fileID: 4039165784331792006}
+--- !u!1 &5723747372400177330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6722018536879586666}
+  - component: {fileID: 2428630002099107834}
+  m_Layer: 0
+  m_Name: SlashResist
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6722018536879586666
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5723747372400177330}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6364455335154455717}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2428630002099107834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5723747372400177330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a4bdf232c4bf6c46925a47d9c8ec15a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ResistAttribute
+  <AttributeName>k__BackingField: SlashResist
+  <AttributeDescription>k__BackingField: Resistance to slashing damage
+  <AttributeType>k__BackingField: 6
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+--- !u!1 &5903514950950572643
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8872544584198514290}
+  - component: {fileID: 6403006284058444792}
+  m_Layer: 0
+  m_Name: Willpower
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8872544584198514290
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903514950950572643}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3772428236119305128}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6403006284058444792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5903514950950572643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5558b90bc6be03c4b815af55c8cdbfb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrimaryAttribute
+  <AttributeName>k__BackingField: Willpower
+  <AttributeDescription>k__BackingField: Increases mental resistance and focus
+  <AttributeType>k__BackingField: 2
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <CultivationAttribute>k__BackingField: {fileID: 3517869051847219180}
+--- !u!1 &5965886038162308487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9062675649610588308}
+  - component: {fileID: 3707505912874220368}
+  m_Layer: 0
+  m_Name: Wisdom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9062675649610588308
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5965886038162308487}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3772428236119305128}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3707505912874220368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5965886038162308487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5558b90bc6be03c4b815af55c8cdbfb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrimaryAttribute
+  <AttributeName>k__BackingField: Wisdom
+  <AttributeDescription>k__BackingField: Increases perception and mana efficiency
+  <AttributeType>k__BackingField: 2
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <CultivationAttribute>k__BackingField: {fileID: 3517869051847219180}
+--- !u!1 &6110482499668107337
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 224277214389519758}
+  - component: {fileID: 2036528926812137645}
+  m_Layer: 0
+  m_Name: ElementalDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &224277214389519758
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6110482499668107337}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4582770917060497364}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2036528926812137645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6110482499668107337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8f2c53216063f4e83a579b1162edcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageAttribute
+  <AttributeName>k__BackingField: ElementalDamage
+  <AttributeDescription>k__BackingField: Elemental Damage
+  <AttributeType>k__BackingField: 7
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+--- !u!1 &7215922146976334069
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2540577553481556134}
+  - component: {fileID: 3168400186455422707}
+  m_Layer: 0
+  m_Name: Health
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2540577553481556134
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7215922146976334069}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1978958989118860664}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3168400186455422707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7215922146976334069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e122b8d256abd8458ccab439dd7e87f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LifeAttribute
+  <AttributeName>k__BackingField: Health
+  <AttributeDescription>k__BackingField: Health
+  <AttributeType>k__BackingField: 4
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <DerivedSources>k__BackingField:
+  - <Source>k__BackingField: {fileID: 3396482550663627651}
+    <Multiplier>k__BackingField: 3
+  - <Source>k__BackingField: {fileID: 3897337368604042616}
+    <Multiplier>k__BackingField: 2
+  <RegenAttribute>k__BackingField: {fileID: 618751936415047277}
+--- !u!1 &7653818480463996909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8628326533242551208}
+  - component: {fileID: 3964946162266212229}
+  m_Layer: 0
+  m_Name: Dexterity
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8628326533242551208
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7653818480463996909}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3772428236119305128}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3964946162266212229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7653818480463996909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5558b90bc6be03c4b815af55c8cdbfb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrimaryAttribute
+  <AttributeName>k__BackingField: Dexterity
+  <AttributeDescription>k__BackingField: Improves accuracy and fine motor skills
+  <AttributeType>k__BackingField: 2
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <CultivationAttribute>k__BackingField: {fileID: 3517869051847219180}
+--- !u!1 &7694757591128185776
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8422565717847025451}
+  - component: {fileID: 6648103363843721431}
+  m_Layer: 0
+  m_Name: EntityAttributes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8422565717847025451
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7694757591128185776}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2016124959156699499}
+  - {fileID: 3772428236119305128}
+  - {fileID: 6273745978420826123}
+  - {fileID: 7024624621551370726}
+  - {fileID: 1978958989118860664}
+  - {fileID: 6364455335154455717}
+  - {fileID: 4582770917060497364}
+  - {fileID: 4450100683749565383}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6648103363843721431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7694757591128185776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 284980cd696bf1f4b8cca5f6e4575a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EntityAttributes
+  <AttributeList>k__BackingField:
+  - {fileID: 3517869051847219180}
+  - {fileID: 3897337368604042616}
+  - {fileID: 7625492990010285098}
+  - {fileID: 3396482550663627651}
+  - {fileID: 3964946162266212229}
+  - {fileID: 7767865006762547176}
+  - {fileID: 1467553977935717889}
+  - {fileID: 4196176358750152365}
+  - {fileID: 7467098112959264677}
+  - {fileID: 6403006284058444792}
+  - {fileID: 3707505912874220368}
+  - {fileID: 8883004464606124853}
+  - {fileID: 1038436691065422044}
+  - {fileID: 3567052745810729123}
+  - {fileID: 618751936415047277}
+  - {fileID: 4039165784331792006}
+  - {fileID: 6005559976359604174}
+  - {fileID: 3168400186455422707}
+  - {fileID: 8707481038087044021}
+  - {fileID: 8984086822270535729}
+  - {fileID: 6044958757934102164}
+  - {fileID: 7553245232676637499}
+  - {fileID: 2428630002099107834}
+  - {fileID: 6926715060494317765}
+  - {fileID: 393103552394117957}
+  - {fileID: 7926336318212409334}
+  - {fileID: 6250395506139326998}
+  - {fileID: 2304041447540998505}
+  - {fileID: 8461974249734442302}
+  - {fileID: 2036528926812137645}
+  - {fileID: 3750570472027523212}
+  - {fileID: 8266718088575228997}
+  <Health>k__BackingField: {fileID: 3168400186455422707}
+  <Mana>k__BackingField: {fileID: 8984086822270535729}
+  <Energy>k__BackingField: {fileID: 8707481038087044021}
+  <EntityPower>k__BackingField: 0
+  <SkillsContainer>k__BackingField: {fileID: 0}
+--- !u!1 &7842631207854198104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1978958989118860664}
+  m_Layer: 0
+  m_Name: LifeAttributes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1978958989118860664
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7842631207854198104}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2540577553481556134}
+  - {fileID: 7276922656451124866}
+  - {fileID: 7370487517654387292}
+  m_Father: {fileID: 8422565717847025451}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8116706987710984596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1940522735329670920}
+  - component: {fileID: 3396482550663627651}
+  m_Layer: 0
+  m_Name: Constitution
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1940522735329670920
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116706987710984596}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3772428236119305128}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3396482550663627651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8116706987710984596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5558b90bc6be03c4b815af55c8cdbfb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrimaryAttribute
+  <AttributeName>k__BackingField: Constitution
+  <AttributeDescription>k__BackingField: Increases health and physical resilience
+  <AttributeType>k__BackingField: 2
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <CultivationAttribute>k__BackingField: {fileID: 3517869051847219180}
+--- !u!1 &8464940845147889894
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8340031046941935310}
+  - component: {fileID: 8883004464606124853}
+  m_Layer: 0
+  m_Name: MovementSpeed
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8340031046941935310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8464940845147889894}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6273745978420826123}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8883004464606124853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8464940845147889894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e608cf5456d3246bb8a057e825f51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DerivedAttribute
+  <AttributeName>k__BackingField: MovementSpeed
+  <AttributeDescription>k__BackingField: The movement speed.
+  <AttributeType>k__BackingField: 5
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 5
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []
+  <DerivedSources>k__BackingField:
+  - <Source>k__BackingField: {fileID: 7625492990010285098}
+    <Multiplier>k__BackingField: 0.01
+--- !u!1 &8677517789737479298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2745583382302119962}
+  - component: {fileID: 6250395506139326998}
+  m_Layer: 0
+  m_Name: BluntDamage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2745583382302119962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8677517789737479298}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4582770917060497364}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6250395506139326998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8677517789737479298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e8f2c53216063f4e83a579b1162edcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DamageAttribute
+  <AttributeName>k__BackingField: BluntDamage
+  <AttributeDescription>k__BackingField: Blunt Damage
+  <AttributeType>k__BackingField: 7
+  <AttributeCanLevel>k__BackingField: 0
+  <AttributeLevel>k__BackingField:
+    <InitialExpToNextLevel>k__BackingField: 10
+    <LevelExpMultiplier>k__BackingField: 1.2
+    <CurrentLevel>k__BackingField: 0
+    <CurrentLevelExp>k__BackingField: 0
+    <ExpToNextLevel>k__BackingField: 10
+    <TotalExpGained>k__BackingField: 0
+    <ProgressPercentage>k__BackingField: 0
+  <BaseValue>k__BackingField: 0
+  <CurrentValue>k__BackingField: 0
+  <MaxValue>k__BackingField: 0
+  <FlatModifierValue>k__BackingField: 0
+  <PercentModifierValue>k__BackingField: 0
+  <ParentAttributes>k__BackingField: {fileID: 6648103363843721431}
+  <AttributeModifiers>k__BackingField: []

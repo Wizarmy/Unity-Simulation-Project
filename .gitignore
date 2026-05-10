@@ -1,0 +1,48 @@
+# Unity
+Library/
+Temp/
+Obj/
+Build/
+Logs/
+*.csproj
+*.sln
+*.user
+*.pidb
+*.suo
+*.userprefs
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Rider / Visual Studio / JetBrains
+*.sln
+*.csproj
+*.user
+.idea/
+*.DotSettings
+*.DotSettings.user
+
+# Unity Specific
+ProjectSettings/
+UserSettings/
+Assembly-CSharp-Editor.csproj
+Assembly-CSharp.csproj
+UnityEditor.csproj
+
+# Large or generated files
+*.unitypackage
+*.asset
+*.meta (keep important ones)
+
+# StreamingAssets (optional - remove the # if you want to ignore it)
+# StreamingAssets/
+
+# Logs
+*.log
+
+# Packages (usually don't need to version control)
+Packages/
+
+# Ignore test and backup folders
+*_Backup*/
