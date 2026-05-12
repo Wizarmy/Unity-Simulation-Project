@@ -9,7 +9,7 @@ public abstract class BaseAttribute : MonoBehaviour
     [field: SerializeField] public string AttributeDescription { get; protected set; }
     [field: SerializeField] public AttributeTypeEnum AttributeType { get; protected set; }
     [field: SerializeField] public bool AttributeCanLevel { get; protected set; }
-    [field: SerializeField] public AttributeLevel AttributeLevel { get; protected set; }
+    [field: SerializeField] public AttributeLevel AttributeLevel { get; protected set; } = new AttributeLevel();
     
     [field: SerializeField] public float BaseValue { get; protected set; }
     [field: SerializeField] public float CurrentValue { get; protected set; }
@@ -34,6 +34,8 @@ public abstract class BaseAttribute : MonoBehaviour
         AttributeLevel.OnLevelUp += CalculateMaxValue;
         SubscribeToDependencies();                    // ← NEW
     }
+
+  
 
     // NEW: Centralized dependency subscription (no more copy-paste in subclasses)
     protected virtual void SubscribeToDependencies() { }

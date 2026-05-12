@@ -1,0 +1,25 @@
+{
+  "skills": [
+    {
+      "name": "Unarmed",
+      "description": "Proficiency with fists and natural weapons",
+      "baseValue": 0,
+      "canLevel": true,
+      "levelBonusPerPoint": 1.0
+    },
+    {
+      "name": "Evasion",
+      "description": "Ability to dodge, parry, and avoid attacks",
+      "baseValue": 0,
+      "canLevel": true,
+      "levelBonusPerPoint": 0.8
+    },
+    {
+      "name": "Blacksmithing",
+      "description": "Crafting and improving metal items",
+      "baseValue": 0,
+      "canLevel": true,
+      "levelBonusPerPoint": 1.0
+    }
+  ]
+}

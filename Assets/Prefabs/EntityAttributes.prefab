@@ -2203,7 +2203,7 @@ MonoBehaviour:
   <Mana>k__BackingField: {fileID: 8984086822270535729}
   <Energy>k__BackingField: {fileID: 8707481038087044021}
   <EntityPower>k__BackingField: 0
-  <SkillsContainer>k__BackingField: {fileID: 0}
+  <SkillsContainer>k__BackingField: {fileID: 4450100683749565383}
 --- !u!1 &7842631207854198104
 GameObject:
   m_ObjectHideFlags: 0

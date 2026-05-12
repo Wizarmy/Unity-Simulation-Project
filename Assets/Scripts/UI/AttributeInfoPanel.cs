@@ -48,6 +48,7 @@ public class AttributeInfoPanel : MonoBehaviour
             AttributeTypeEnum.Derived => 2,
             AttributeTypeEnum.Resist => 1,
             AttributeTypeEnum.Damage => 1,
+            AttributeTypeEnum.Skill => 0,
             _ => throw new ArgumentOutOfRangeException()
          };
 

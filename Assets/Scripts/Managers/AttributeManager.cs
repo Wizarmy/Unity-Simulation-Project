@@ -16,20 +16,19 @@ public class AttributeManager : MonoBehaviour
             return;
         }
         _instance = this;
-        DontDestroyOnLoad(gameObject); // Optional - keep across scenes
         PreloadAllData();
     }
     #endregion
     
     [Header("JSON Files (Resources folder)")]
-    [SerializeField] private string skillsJsonPath = "Data/skills";
+    [SerializeField] private string skillsJsonPath = "Data/Skills/Skills";
 
     private Dictionary<string, SkillDefinition> _skillDefinitions = new Dictionary<string, SkillDefinition>(StringComparer.OrdinalIgnoreCase);
 
     private void PreloadAllData()
     {
         LoadSkills();
-        Debug.Log($"[AttributeManager] Preloaded {_skillDefinitions.Count} skill definitions.");
+        MessageManager.Instance.Log($"[AttributeManager] Preloaded {_skillDefinitions.Count} skill definitions.");
     }
     
     private void LoadSkills()
@@ -37,7 +36,7 @@ public class AttributeManager : MonoBehaviour
         var jsonText = Resources.Load<TextAsset>(skillsJsonPath);
         if (jsonText == null)
         {
-            Debug.LogError($"[AttributeManager] Could not load skills JSON at Resources/{skillsJsonPath}.json");
+            MessageManager.Instance.LogWarning($"[AttributeManager] Could not load skills JSON at Resources/{skillsJsonPath}.json");
             return;
         }
 
@@ -56,7 +55,7 @@ public class AttributeManager : MonoBehaviour
         if (_skillDefinitions.TryGetValue(skillName, out var def))
             return def;
 
-        Debug.LogWarning($"[AttributeManager] Skill definition not found: {skillName}");
+        MessageManager.Instance.LogWarning($"[AttributeManager] Skill definition not found: {skillName}");
         return null;
     }
 

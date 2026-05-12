@@ -1,47 +1,42 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EntityAI : MonoBehaviour
 {
     [Header("AI Settings")]
     [SerializeField] private float maxHeadTurnAngle = 75f;
+    [Header("AI Links")]
+    [field: SerializeField] public BaseEntity ParentEntity { get; protected set; }
+    [field:SerializeField] public Transform BodyTransform { get; protected set; }
+    [field:SerializeField]public float CurrentMovementSpeed{ get; protected set; } = 5f;
+    [field:SerializeField]public float CurrentTurnSpeed{ get; protected set; } = 120f;
+    [field:SerializeField] public Transform HeadTransform{ get; protected set; }
+    [field:SerializeField] public int Team{ get; protected set; }
     
-    [SerializeField] private BaseEntity parentEntity;
-    [SerializeField] private Transform bodyTransform;
-    [SerializeField] private Transform headTransform;
-
-    private float _currentMovementSpeed = 5f;
-    private float _currentTurnSpeed = 120f;
-
-    private int _team;
+    public List<ActiveAbility> Abilities => ParentEntity?.ActiveAbilities;
 
     // States
     private AIState _currentState;
     private readonly IdleState _idleState = new IdleState();
     private readonly ChaseState _chaseState = new ChaseState();
     private readonly EngageState _engageState = new EngageState();
-
-    public BaseEntity ParentEntity => parentEntity;
-    public Transform HeadTransform => headTransform;
-    public Transform BodyTransform => bodyTransform;
-    public float CurrentMovementSpeed => _currentMovementSpeed;
-    public float CurrentTurnSpeed => _currentTurnSpeed;
-    public int Team => _team;
+    
     [field: SerializeField] public BaseEntity CombatTarget { get; private set; }
    
     private Coroutine _targetSearchCoroutine;
 
     public void Initialize(BaseEntity entity)
     {
-        parentEntity = entity;
-        _team = entity.EntityTeam;
+        ParentEntity = entity;
+        Team = entity.EntityTeam;
         
-        headTransform= parentEntity.Body.HeadTransform;
-        bodyTransform = parentEntity.Body.transform;
+        HeadTransform= ParentEntity.Body.HeadTransform;
+        BodyTransform = ParentEntity.Body.transform;
 
 
-        _currentMovementSpeed = 5f;
-        _currentTurnSpeed = 120f;
+        CurrentMovementSpeed = 5f;
+        CurrentTurnSpeed = 120f;
         
         GameManager.Instance.OnCombatStateChanged += OnCombatStateChanged;
         
@@ -81,7 +76,7 @@ public class EntityAI : MonoBehaviour
 
     private IEnumerator TargetSearchRoutine()
     {
-        while (true)           // Much better than while(true)
+        while (true)          
         {
             FindNearestEnemy();
             yield return new WaitForSeconds(1f);
@@ -101,7 +96,7 @@ public class EntityAI : MonoBehaviour
         _currentState = newState;
         _currentState.Enter();
 
-        Debug.Log($"[EntityAI] {parentEntity.EntityName} → {_currentState.GetType().Name}");
+        MessageManager.Instance.Log($"[EntityAI] {ParentEntity.EntityName} → {_currentState.GetType().Name}");
     }
 
     private void Update()
@@ -114,26 +109,26 @@ public class EntityAI : MonoBehaviour
     public void LookAtTarget(Vector3 targetPosition)
     {
         // Body - upright only
-        if (bodyTransform)
+        if (BodyTransform)
         {
-            var dir = (targetPosition - bodyTransform.position).normalized;
+            var dir = (targetPosition - BodyTransform.position).normalized;
             dir.y = 0f;
 
             if (dir.sqrMagnitude > 0.001f)
             {
                 var targetRot = Quaternion.LookRotation(dir);
-                bodyTransform.rotation = Quaternion.RotateTowards(
-                    bodyTransform.rotation, targetRot, _currentTurnSpeed * Time.deltaTime);
+                BodyTransform.rotation = Quaternion.RotateTowards(
+                    BodyTransform.rotation, targetRot, CurrentTurnSpeed * Time.deltaTime);
             }
         }
 
         // Head with limits
-        if (!headTransform) return;
+        if (!HeadTransform) return;
 
-        var headDir = (targetPosition - headTransform.position).normalized;
+        var headDir = (targetPosition - HeadTransform.position).normalized;
         var targetHeadRot = Quaternion.LookRotation(headDir);
 
-        var bodyRot = bodyTransform.rotation;
+        var bodyRot = BodyTransform.rotation;
         var relativeRot = Quaternion.Inverse(bodyRot) * targetHeadRot;
 
         var euler = relativeRot.eulerAngles;
@@ -147,31 +142,31 @@ public class EntityAI : MonoBehaviour
         relativeRot = Quaternion.Euler(vertical, horizontal, 0f);
         var finalHeadRot = bodyRot * relativeRot;
 
-        headTransform.rotation = Quaternion.RotateTowards(
-            headTransform.rotation, finalHeadRot, _currentTurnSpeed * 1.5f * Time.deltaTime);
+        HeadTransform.rotation = Quaternion.RotateTowards(
+            HeadTransform.rotation, finalHeadRot, CurrentTurnSpeed * 1.5f * Time.deltaTime);
     }
 
     public void MoveTowardsTarget(BaseEntity target)
     {
         if (!target) return;
 
-        var direction = target.Body.transform.position - bodyTransform.position;
+        var direction = target.Body.transform.position - BodyTransform.position;
         var distance = direction.magnitude;
 
         if (distance <= 3f) return;
 
         var moveDir = direction.normalized;
-        bodyTransform.position += moveDir * (_currentMovementSpeed * Time.deltaTime);
+        BodyTransform.position += moveDir * (CurrentMovementSpeed * Time.deltaTime);
     }
 
     public void BackAway(BaseEntity target)
     {
         if (!target) return;
 
-        var direction = target.Body.transform.position - bodyTransform.position;
+        var direction = target.Body.transform.position - BodyTransform.position;
         var moveDir = -direction.normalized;
 
-        bodyTransform.position += moveDir * (_currentMovementSpeed * 0.7f * Time.deltaTime);
+        BodyTransform.position += moveDir * (CurrentMovementSpeed * 0.7f * Time.deltaTime);
     }
 
     public void FindNearestEnemy()
@@ -181,10 +176,10 @@ public class EntityAI : MonoBehaviour
 
         foreach (var entity in EntityManager.Instance.EntityList)
         {
-            if (!entity || entity == parentEntity || entity.EntityTeam == _team)
+            if (!entity || entity == ParentEntity || entity.EntityTeam == Team)
                 continue;
 
-            var distance = Vector3.Distance(bodyTransform.position, entity.Body.transform.position);
+            var distance = Vector3.Distance(BodyTransform.position, entity.Body.transform.position);
 
             if (distance < closestDistance)
             {

@@ -777,7 +777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c88e4c9b735a1bf41a902df7502c4abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AttributeManager
-  skillsJsonPath: Data/skills
+  skillsJsonPath: Data/Skills/Skills
 --- !u!1 &803724235
 GameObject:
   m_ObjectHideFlags: 0

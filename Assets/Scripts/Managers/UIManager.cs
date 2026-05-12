@@ -30,6 +30,8 @@ public class UIManager : MonoBehaviour
         _instance = this;
         // No DontDestroyOnLoad() → destroyed when scene unloads
         
+        MessageManager.Instance.OnMessageReceived += HandleNewMessage;
+        
         InstantiateCharacterPanel();
         SetupInput();
     }
@@ -102,6 +104,12 @@ public class UIManager : MonoBehaviour
 
     #endregion
     
+    
+    private void HandleNewMessage(GameMessage msg)
+    {
+        // TODO: Show in on-screen console, chat window, etc.
+//        Debug.Log(msg.ToString()); // temporary
+    }
     
     #region Character Display Panel
     
@@ -223,5 +231,6 @@ public class UIManager : MonoBehaviour
     private void OnDestroy()
     {
         ClearAllFloatingUI();
+        MessageManager.Instance.OnMessageReceived -= HandleNewMessage;
     }
 }

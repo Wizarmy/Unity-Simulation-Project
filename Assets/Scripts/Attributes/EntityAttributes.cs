@@ -195,8 +195,7 @@ public class EntityAttributes : MonoBehaviour
             _attributeDictionary[attributeName] = found;
             return found;
         }
-
-        Debug.LogWarning($"Attribute of type {attributeName} not found on {gameObject.name}", this);
+        
         return null;
     }
 

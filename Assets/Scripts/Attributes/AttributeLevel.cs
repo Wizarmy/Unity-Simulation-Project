@@ -49,7 +49,7 @@ public class AttributeLevel
         LevelExpMultiplier = Mathf.Max(1.01f, levelExpMultiplier);
         ResetToInitialCurve();
 
-        Debug.Log($"[AttributeLevel] Curve updated → Initial: {InitialExpToNextLevel} | x{LevelExpMultiplier:F2}");
+        MessageManager.Instance.Log($"[AttributeLevel] Curve updated → Initial: {InitialExpToNextLevel} | x{LevelExpMultiplier:F2}");
     }
 
     private void ResetToInitialCurve() => ExpToNextLevel = InitialExpToNextLevel;
@@ -120,7 +120,7 @@ public class AttributeLevel
             OnLevelUp?.Invoke();
 
         if (iterations >= MAX_LEVEL_UP_ITERATIONS)
-            Debug.LogWarning("[AttributeLevel] Max level-up iterations reached.");
+            MessageManager.Instance.LogWarning("[AttributeLevel] Max level-up iterations reached.");
     }
 
     // ==================== PUBLIC API ====================

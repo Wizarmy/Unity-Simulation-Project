@@ -6,7 +6,7 @@ public class CharacterEntity : BaseEntity
     {
         
         Attributes.SetCanLevelUp(true);
-        Debug.Log($"[CharacterEntity] ✅ Initializing CharacterAttributes for {EntityName}");
+        MessageManager.Instance.Log($"[CharacterEntity] ✅ Initializing CharacterAttributes for {EntityName}");
       
     }
 }
