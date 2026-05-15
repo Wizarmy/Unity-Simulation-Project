@@ -43,14 +43,6 @@ public class ActiveAbility : MonoBehaviour
         if (!CanUse()) 
             return false;
 
-        // Optional: Range check (if you want to enforce it here)
-        if (Data.range.Max > 0f)
-        {
-            float dist = Vector3.Distance(_owner.transform.position, target.transform.position);
-            if (dist < Data.range.Min || dist > Data.range.Max)
-                return false;
-        }
-
         CurrentCooldown = Data.cooldown;
         OnCooldownStarted?.Invoke(this);
 
@@ -59,6 +51,7 @@ public class ActiveAbility : MonoBehaviour
         Debug.Log($"{_owner.EntityName} used {Data.abilityName} on {target?.EntityName}");
 
         // TODO: Trigger animation, damage, VFX here later
+        CombatManager.Instance.ResolveAbility(this, _owner, target);
         return true;
     }
 

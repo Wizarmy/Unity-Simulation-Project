@@ -8,6 +8,12 @@ public class BaseAbilityData : ScriptableObject
     public string abilityName = "New Ability";
     [TextArea] public string description = "";
     public Sprite icon;
+    
+    [Header("Targeting")]
+    public bool affectsSelf = false;     // e.g. self-heal or self-damage
+
+    [Header("Ability Classification")]
+    public AbilityType abilityType = AbilityType.Attack;  
 
     [Header("Skill Requirement")]
     public string linkedSkillName = "Unarmed";
@@ -17,7 +23,7 @@ public class BaseAbilityData : ScriptableObject
     public List<AbilityEffect> effects = new List<AbilityEffect>();
 
     [Header("Combat Stats")]
-    public float cooldown = 1.2f;          // ← Moved here
+    public float cooldown = 1.2f;
 
     public ResourceCost resourceCost;
     public MinMaxRange range = new MinMaxRange();

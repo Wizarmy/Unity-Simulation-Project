@@ -55,6 +55,8 @@ public abstract class BaseEntity : MonoBehaviour
 
         // Default starting ability
         AddAbility("Punch");
+        AddAbility("Dodge");
+        
     }
     #endregion
 

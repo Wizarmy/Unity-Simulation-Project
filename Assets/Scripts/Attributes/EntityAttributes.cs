@@ -8,14 +8,58 @@ public class EntityAttributes : MonoBehaviour
     [Header("Entity Attributes")]
     [field: SerializeField] public List<BaseAttribute> AttributeList { get; protected set; } = new List<BaseAttribute>();
 
-    [Header("Cached Attributes")]
+    [Header("XP Distribution")]
+    [field:SerializeField] public XPAllocation XpAllocation { get; protected set; } = new XPAllocation();
+    
+    [field: Header("Cached Attributes - Progression")]
+    [field: SerializeField] public BaseAttribute Cultivation { get; protected set; }
+    [field: SerializeField] public BaseAttribute EntityLevel { get; protected set; }
+    
+    [field: Header("Cached Attributes - Primary")]
+    [field: SerializeField] public BaseAttribute Agility { get; protected set; }
+    [field: SerializeField] public BaseAttribute Constitution { get; protected set; }
+    [field: SerializeField] public BaseAttribute Dexterity { get; protected set; }
+    [field: SerializeField] public BaseAttribute Intelligence { get; protected set; }
+    [field: SerializeField] public BaseAttribute Luck { get; protected set; }
+    [field: SerializeField] public BaseAttribute Stamina { get; protected set; }
+    [field: SerializeField] public BaseAttribute Strength { get; protected set; }
+    [field: SerializeField] public BaseAttribute Willpower { get; protected set; }
+    [field: SerializeField] public BaseAttribute Wisdom { get; protected set; }
+    
+    [field: Header("Cached Attributes - Derived")]
+    [field: SerializeField] public BaseAttribute MovementSpeed { get; protected set; }
+    [field: SerializeField] public BaseAttribute TurningSpeed { get; protected set; }
+    [field: SerializeField] public BaseAttribute CarryingCapacity { get; protected set; }
+
+    [field: Header("Cached Attributes - Core")]
     [field: SerializeField] public BaseAttribute Health { get; protected set; }
     [field: SerializeField] public BaseAttribute Mana { get; protected set; }
     [field: SerializeField] public BaseAttribute Energy { get; protected set; }
     
-    [Header("EntityPower")]
+    [field: Header("Cached Attributes - Regen")]
+    [field: SerializeField] public BaseAttribute HealthRegen { get; protected set; }
+    [field: SerializeField] public BaseAttribute ManaRegen { get; protected set; }
+    [field: SerializeField] public BaseAttribute EnergyRegen { get; protected set; }
+
+    [field: Header("Cached Attributes - Damage")]
+    [field: SerializeField] public BaseAttribute BluntDamage { get; protected set; }
+    [field: SerializeField] public BaseAttribute PiercingDamage { get; protected set; }
+    [field: SerializeField] public BaseAttribute SlashDamage { get; protected set; }
+    [field: SerializeField] public BaseAttribute ElementalDamage { get; protected set; }
+    [field: SerializeField] public BaseAttribute NatureDamage { get; protected set; }
+    [field: SerializeField] public BaseAttribute ArcaneDamage { get; protected set; }
+
+    [field: Header("Cached Attributes - Resistance")]
+    [field: SerializeField] public BaseAttribute BluntResist { get; protected set; }
+    [field: SerializeField] public BaseAttribute PiercingResist { get; protected set; }
+    [field: SerializeField] public BaseAttribute SlashResist { get; protected set; }
+    [field: SerializeField] public BaseAttribute ElementalResist { get; protected set; }
+    [field: SerializeField] public BaseAttribute NatureResist { get; protected set; }
+    [field: SerializeField] public BaseAttribute ArcaneResist { get; protected set; }
+    
+    [field: Header("EntityPower")]
     [field: SerializeField] public float EntityPower { get; protected set; }
-    [Header("Skills Container")]
+    [field: Header("Skills Container")]
     [field: SerializeField] public Transform SkillsContainer { get; protected set; }
 
     // Dictionary for fast lookup by AttributeType
@@ -197,6 +241,11 @@ public class EntityAttributes : MonoBehaviour
         }
         
         return null;
+    }
+    
+    public List<PrimaryAttribute> GetAllPrimaryAttributes()
+    {
+        return AttributeList.OfType<PrimaryAttribute>().ToList();
     }
 
     public List<LifeAttribute> GetAllLifeAttributes()

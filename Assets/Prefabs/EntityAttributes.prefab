@@ -2199,9 +2199,38 @@ MonoBehaviour:
   - {fileID: 2036528926812137645}
   - {fileID: 3750570472027523212}
   - {fileID: 8266718088575228997}
+  <Cultivation>k__BackingField: {fileID: 3517869051847219180}
+  <EntityLevel>k__BackingField: {fileID: 3897337368604042616}
+  <Agility>k__BackingField: {fileID: 7625492990010285098}
+  <Constitution>k__BackingField: {fileID: 3396482550663627651}
+  <Dexterity>k__BackingField: {fileID: 3964946162266212229}
+  <Intelligence>k__BackingField: {fileID: 7767865006762547176}
+  <Luck>k__BackingField: {fileID: 1467553977935717889}
+  <Stamina>k__BackingField: {fileID: 4196176358750152365}
+  <Strength>k__BackingField: {fileID: 7467098112959264677}
+  <Willpower>k__BackingField: {fileID: 6403006284058444792}
+  <Wisdom>k__BackingField: {fileID: 3707505912874220368}
+  <MovementSpeed>k__BackingField: {fileID: 8883004464606124853}
+  <TurningSpeed>k__BackingField: {fileID: 1038436691065422044}
+  <CarryingCapacity>k__BackingField: {fileID: 3567052745810729123}
   <Health>k__BackingField: {fileID: 3168400186455422707}
   <Mana>k__BackingField: {fileID: 8984086822270535729}
   <Energy>k__BackingField: {fileID: 8707481038087044021}
+  <HealthRegen>k__BackingField: {fileID: 618751936415047277}
+  <ManaRegen>k__BackingField: {fileID: 4039165784331792006}
+  <EnergyRegen>k__BackingField: {fileID: 6005559976359604174}
+  <BluntDamage>k__BackingField: {fileID: 6250395506139326998}
+  <PiercingDamage>k__BackingField: {fileID: 2304041447540998505}
+  <SlashDamage>k__BackingField: {fileID: 8461974249734442302}
+  <ElementalDamage>k__BackingField: {fileID: 2036528926812137645}
+  <NatureDamage>k__BackingField: {fileID: 3750570472027523212}
+  <ArcaneDamage>k__BackingField: {fileID: 8266718088575228997}
+  <BluntResist>k__BackingField: {fileID: 6044958757934102164}
+  <PiercingResist>k__BackingField: {fileID: 7553245232676637499}
+  <SlashResist>k__BackingField: {fileID: 2428630002099107834}
+  <ElementalResist>k__BackingField: {fileID: 6926715060494317765}
+  <NatureResist>k__BackingField: {fileID: 393103552394117957}
+  <ArcaneResist>k__BackingField: {fileID: 7926336318212409334}
   <EntityPower>k__BackingField: 0
   <SkillsContainer>k__BackingField: {fileID: 4450100683749565383}
 --- !u!1 &7842631207854198104

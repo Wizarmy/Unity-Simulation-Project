@@ -34,8 +34,10 @@ public class SimulationScene : MonoBehaviour
 
     private void TestButton()
     {
-        EntityManager.Instance.EntityList[0].Attributes.GetAttribute("Cultivation").AddExperience(750000f);
-        EntityManager.Instance.EntityList[0].Attributes.GetAttribute("EntityLevel").AddExperience(15f);
+      //  EntityManager.Instance.EntityList[0].Attributes.GetAttribute("Cultivation").AddExperience(750000f);
+      //  EntityManager.Instance.EntityList[0].Attributes.GetAttribute("EntityLevel").AddExperience(15f);
+      
+      EntityManager.Instance.EntityList[0].Attributes.Health.ChangeCurrentValueByAmount(-10);
     }
     
     
