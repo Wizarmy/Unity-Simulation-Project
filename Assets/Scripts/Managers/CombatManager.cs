@@ -61,7 +61,8 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private float defaultEvasionValue = 5f;
 
     [Header("Experience Settings")]
-    [SerializeField, Range(0f, 1f)] private float linkedSkillExperienceFraction = 0.333f; // ≈ 1/3 of the damage XP
+    [SerializeField, Range(0f, 1f)] private float linkedSkillExperienceFraction = 0.333f;
+    [SerializeField, Range(0f, 1f)] private float dodgeEvasionExperienceFraction = 0.333f;
 
     [Header("Floating Text Settings")]
     [SerializeField] private float missTextYOffset = 1.2f;
@@ -94,7 +95,6 @@ public class CombatManager : MonoBehaviour
             return;
         }
 
-        // === Combat Resolution Steps ===
         if (IsMiss(caster, ability))
         {
             MessageManager.Instance?.Log($"{caster.EntityName}'s {ability.Data.abilityName} missed!");
@@ -111,6 +111,9 @@ public class CombatManager : MonoBehaviour
         if (TargetDodges(caster, target, ability))
         {
             MessageManager.Instance?.Log($"{target.EntityName} dodged the attack!");
+
+            // Evasion receives 1/3 of the total damage that WOULD have been applied
+            GrantEvasionExperienceOnDodge(caster, target, ability);
             return;
         }
 
@@ -136,9 +139,6 @@ public class CombatManager : MonoBehaviour
         return skill?.CurrentValue ?? 1f;
     }
 
-    /// <summary>
-    /// Only CharacterEntity can gain experience (as requested)
-    /// </summary>
     private void ApplyExperience(BaseEntity entity, BaseAttribute attribute, float amount, string source = "")
     {
         if (attribute == null || amount <= 0f) return;
@@ -155,9 +155,6 @@ public class CombatManager : MonoBehaviour
         Debug.Log($"[Combat XP] {logSource} gained +{amount:F1} XP");
     }
 
-    /// <summary>
-    /// Grants experience to the linked skill (≈ 1/3 of the damage amount)
-    /// </summary>
     private void ApplyLinkedSkillExperience(BaseEntity caster, ActiveAbility ability, float baseAmount)
     {
         if (caster == null || ability?.Data == null || string.IsNullOrEmpty(ability.Data.linkedSkillName))
@@ -167,8 +164,19 @@ public class CombatManager : MonoBehaviour
         if (skillAttr == null) return;
 
         float skillXP = baseAmount * linkedSkillExperienceFraction;
-
         ApplyExperience(caster, skillAttr, skillXP, $"{caster.EntityName}'s {skillAttr.AttributeName} (linked skill)");
+    }
+
+    private void GrantEvasionExperienceOnDodge(BaseEntity caster, BaseEntity target, ActiveAbility ability)
+    {
+        float potentialDamage = CalculatePotentialTotalDamage(caster, target, ability);
+        if (potentialDamage <= 0f) return;
+
+        var evasionAttr = target.Attributes.GetAttribute("Evasion");
+        if (evasionAttr == null) return;
+
+        float evasionXP = potentialDamage * dodgeEvasionExperienceFraction;
+        ApplyExperience(target, evasionAttr, evasionXP, $"{target.EntityName}'s Evasion (successful dodge)");
     }
     #endregion
 
@@ -236,7 +244,6 @@ public class CombatManager : MonoBehaviour
         float rawEffectDamage = effect.baseValue * effect.scalingFactor * skillMultiplier;
         Debug.Log($"[CalculateRawDamage] Base + Skill = {rawEffectDamage:F2}");
 
-        // Damage Attribute Bonus
         var dmgAttr = AttributeHelper.GetDamageAttribute(caster, effect.damageType);
         if (dmgAttr != null)
         {
@@ -245,7 +252,6 @@ public class CombatManager : MonoBehaviour
             Debug.Log($"[CalculateRawDamage] Damage Attribute ({dmgAttr.AttributeName}) bonus: +{dmgBonus:P1}");
         }
 
-        // Primary Attribute Bonus (e.g. Strength)
         if (effect.primaryEffectAttribute != PrimaryAttributeType.None)
         {
             var primaryAttr = AttributeHelper.GetPrimaryAttribute(caster, effect.primaryEffectAttribute);
@@ -261,13 +267,14 @@ public class CombatManager : MonoBehaviour
         return rawEffectDamage;
     }
 
-    private void ApplyDamage(BaseEntity target, float amount, DamageType damageType,
-                           PrimaryAttributeType defenceAttribute, bool isCrit, BaseEntity attacker, ActiveAbility ability)
+    /// <summary>
+    /// Applies all post-crit damage reductions (resistance + primary defence) and returns the final amount.
+    /// Used by both real damage application AND potential damage calculation for Evasion XP.
+    /// </summary>
+    private float ApplyDamageReductions(BaseEntity target, float damageAfterCrit, DamageType damageType,
+                                        PrimaryAttributeType defenceAttribute, bool logReductions = true)
     {
-        if (target?.Attributes?.Health == null) return;
-
-        float finalAmount = Mathf.Max(1f, amount);
-        Debug.Log($"[ApplyDamage] Incoming damage: {finalAmount:F2} | Type: {damageType}");
+        float finalAmount = Mathf.Max(1f, damageAfterCrit);
 
         // Resistance Attribute
         var resistAttr = AttributeHelper.GetResistanceAttribute(target, damageType);
@@ -275,10 +282,12 @@ public class CombatManager : MonoBehaviour
         {
             float resist = resistAttr.CurrentValue * attributeBonusPerPoint;
             finalAmount *= (1f - Mathf.Clamp01(resist));
-            Debug.Log($"[ApplyDamage] Resistance ({resistAttr.AttributeName}) reduction: -{resist:P1}");
+
+            if (logReductions)
+                Debug.Log($"[ApplyDamage] Resistance ({resistAttr.AttributeName}) reduction: -{resist:P1}");
         }
 
-        // Primary Defence Attribute (if set)
+        // Primary Defence Attribute
         if (defenceAttribute != PrimaryAttributeType.None)
         {
             var primaryDefence = AttributeHelper.GetPrimaryAttribute(target, defenceAttribute);
@@ -286,11 +295,25 @@ public class CombatManager : MonoBehaviour
             {
                 float defenceMod = primaryDefence.CurrentValue * attributeBonusPerPoint;
                 finalAmount *= (1f - Mathf.Clamp01(defenceMod));
-                Debug.Log($"[ApplyDamage] Primary Defence ({primaryDefence.AttributeName}) reduction: -{defenceMod:P1}");
+
+                if (logReductions)
+                    Debug.Log($"[ApplyDamage] Primary Defence ({primaryDefence.AttributeName}) reduction: -{defenceMod:P1}");
             }
         }
 
         finalAmount = Mathf.Max(1f, finalAmount);
+        return finalAmount;
+    }
+
+    private void ApplyDamage(BaseEntity target, float amount, DamageType damageType,
+                           PrimaryAttributeType defenceAttribute, bool isCrit, BaseEntity attacker, ActiveAbility ability)
+    {
+        if (target?.Attributes?.Health == null) return;
+
+        float finalAmount = ApplyDamageReductions(target, amount, damageType, defenceAttribute, logReductions: true);
+
+        Debug.Log($"[ApplyDamage] Incoming damage: {finalAmount:F2} | Type: {damageType}");
+        Debug.Log($"[ApplyDamage] Final damage after all reductions: {finalAmount:F2}");
 
         // === FLOATING DAMAGE TEXT ===
         if (FloatingTextManager.Instance != null)
@@ -300,18 +323,16 @@ public class CombatManager : MonoBehaviour
             FloatingTextManager.Instance.ShowDamage(spawnPos, finalAmount, isCrit);
         }
 
-        Debug.Log($"[ApplyDamage] Final damage after all reductions: {finalAmount:F2}");
-
         // === Experience Gain ===
         if (attacker != null)
         {
             var dmgAttr = AttributeHelper.GetDamageAttribute(attacker, damageType);
             ApplyExperience(attacker, dmgAttr, finalAmount, $"{attacker.EntityName}'s {dmgAttr?.AttributeName}");
 
-            // NEW: Linked skill receives ~1/3 of the damage XP
             ApplyLinkedSkillExperience(attacker, ability, finalAmount);
         }
 
+        var resistAttr = AttributeHelper.GetResistanceAttribute(target, damageType); // for XP
         ApplyExperience(target, resistAttr, finalAmount, $"{target.EntityName}'s {resistAttr?.AttributeName}");
 
         // Apply Damage
@@ -328,6 +349,31 @@ public class CombatManager : MonoBehaviour
         {
             HandleDeath(attacker, target);
         }
+    }
+
+    /// <summary>
+    /// Calculates the exact total damage that WOULD have been applied (used only for Evasion XP on dodge).
+    /// Reuses ApplyDamageReductions so there is no duplicated reduction logic.
+    /// </summary>
+    private float CalculatePotentialTotalDamage(BaseEntity caster, BaseEntity target, ActiveAbility ability)
+    {
+        float total = 0f;
+
+        foreach (var effect in ability.Data.effects)
+        {
+            if (effect == null || effect.effectType != AbilityEffectType.Damage) continue;
+
+            float rawDamage = CalculateRawDamage(caster, ability, effect);
+            bool isCrit = IsCriticalHit(caster);
+            float damageAfterCrit = isCrit ? rawDamage * critMultiplier : rawDamage;
+
+            float finalDamage = ApplyDamageReductions(target, damageAfterCrit, effect.damageType,
+                                                    effect.primaryEffectDefenceAttribute, logReductions: false);
+
+            total += finalDamage;
+        }
+
+        return total;
     }
     #endregion
 
