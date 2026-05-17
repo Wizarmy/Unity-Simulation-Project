@@ -2199,6 +2199,23 @@ MonoBehaviour:
   - {fileID: 2036528926812137645}
   - {fileID: 3750570472027523212}
   - {fileID: 8266718088575228997}
+  <XpAllocation>k__BackingField:
+    cultivationPercent: 0
+    strengthPercent: 6.6666665
+    agilityPercent: 6.6666665
+    constitutionPercent: 6.6666665
+    dexterityPercent: 6.6666665
+    intelligencePercent: 6.6666665
+    luckPercent: 6.6666665
+    staminaPercent: 6.6666665
+    willpowerPercent: 6.6666665
+    wisdomPercent: 6.6666665
+    healthPercent: 6.6666665
+    manaPercent: 6.6666665
+    energyPercent: 6.6666665
+    healthRegenPercent: 6.6666665
+    manaRegenPercent: 6.6666665
+    energyRegenPercent: 6.6666665
   <Cultivation>k__BackingField: {fileID: 3517869051847219180}
   <EntityLevel>k__BackingField: {fileID: 3897337368604042616}
   <Agility>k__BackingField: {fileID: 7625492990010285098}
@@ -2387,7 +2404,7 @@ MonoBehaviour:
     <ExpToNextLevel>k__BackingField: 10
     <TotalExpGained>k__BackingField: 0
     <ProgressPercentage>k__BackingField: 0
-  <BaseValue>k__BackingField: 5
+  <BaseValue>k__BackingField: 10
   <CurrentValue>k__BackingField: 0
   <MaxValue>k__BackingField: 0
   <FlatModifierValue>k__BackingField: 0

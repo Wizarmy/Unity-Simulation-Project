@@ -67,9 +67,8 @@ public class CombatManager : MonoBehaviour
     [Header("Floating Text Settings")]
     [SerializeField] private float missTextYOffset = 1.2f;
     [SerializeField] private float damageTextYOffset = 0.5f;
-
-    [Header("Death Settings")]
-    [SerializeField] private float deathDestroyDelay = 0.2f;
+    
+   
     #endregion
 
     #region Main Entry Point
@@ -145,14 +144,14 @@ public class CombatManager : MonoBehaviour
 
         if (entity is not CharacterEntity)
         {
-            Debug.Log($"[Combat XP] Skipped XP gain for {entity.EntityName} (not a CharacterEntity)");
+           // Debug.Log($"[Combat XP] Skipped XP gain for {entity.EntityName} (not a CharacterEntity)");
             return;
         }
 
         attribute.AddExperience(amount);
 
         string logSource = string.IsNullOrEmpty(source) ? attribute.AttributeName : source;
-        Debug.Log($"[Combat XP] {logSource} gained +{amount:F1} XP");
+      //  Debug.Log($"[Combat XP] {logSource} gained +{amount:F1} XP");
     }
 
     private void ApplyLinkedSkillExperience(BaseEntity caster, ActiveAbility ability, float baseAmount)
@@ -183,7 +182,7 @@ public class CombatManager : MonoBehaviour
     #region Combat Resolution
     private bool IsMiss(BaseEntity caster, ActiveAbility ability)
     {
-        Debug.Log($"[IsMiss] Checking miss for {caster.EntityName} using {ability.Data.abilityName}");
+      //  Debug.Log($"[IsMiss] Checking miss for {caster.EntityName} using {ability.Data.abilityName}");
 
         float skillLevel = GetLinkedSkillLevel(caster, ability);
         float agility = caster.Attributes.Agility?.CurrentValue ?? defaultAttributeValue;
@@ -194,13 +193,13 @@ public class CombatManager : MonoBehaviour
         hitChance = Mathf.Clamp(hitChance, missMinChance, missMaxChance);
 
         bool missed = Random.value > hitChance;
-        Debug.Log($"[IsMiss] Hit Chance: {hitChance:P1} → {(missed ? "MISS!" : "Hit")}");
+     //   Debug.Log($"[IsMiss] Hit Chance: {hitChance:P1} → {(missed ? "MISS!" : "Hit")}");
         return missed;
     }
 
     private bool TargetDodges(BaseEntity caster, BaseEntity target, ActiveAbility ability)
     {
-        Debug.Log($"[TargetDodges] Checking dodge for {target.EntityName} against {caster.EntityName}");
+    //    Debug.Log($"[TargetDodges] Checking dodge for {target.EntityName} against {caster.EntityName}");
 
         float attackerSkill = GetLinkedSkillLevel(caster, ability);
         float attackerAgility = caster.Attributes.Agility?.CurrentValue ?? defaultAttributeValue;
@@ -216,7 +215,7 @@ public class CombatManager : MonoBehaviour
         dodgeChance = Mathf.Clamp(dodgeChance, dodgeMinChance, dodgeMaxChance);
 
         bool dodged = Random.value < dodgeChance;
-        Debug.Log($"[TargetDodges] Dodge Chance: {dodgeChance:P1} → {(dodged ? "DODGED!" : "Failed to dodge")}");
+     //   Debug.Log($"[TargetDodges] Dodge Chance: {dodgeChance:P1} → {(dodged ? "DODGED!" : "Failed to dodge")}");
         return dodged;
     }
 
@@ -227,7 +226,7 @@ public class CombatManager : MonoBehaviour
         critChance = Mathf.Clamp(critChance, critMinChance, critMaxChance);
 
         bool isCrit = Random.value < critChance;
-        Debug.Log($"[IsCriticalHit] Crit Chance: {critChance:P1} → {(isCrit ? "CRITICAL!" : "Normal")}");
+      //  Debug.Log($"[IsCriticalHit] Crit Chance: {critChance:P1} → {(isCrit ? "CRITICAL!" : "Normal")}");
         return isCrit;
     }
     #endregion
@@ -235,21 +234,21 @@ public class CombatManager : MonoBehaviour
     #region Damage Calculation
     private float CalculateRawDamage(BaseEntity caster, ActiveAbility ability, AbilityEffect effect)
     {
-        Debug.Log($"[CalculateRawDamage] START → {caster.EntityName} | {ability.Data.abilityName} ({effect.damageType})");
+   //     Debug.Log($"[CalculateRawDamage] START → {caster.EntityName} | {ability.Data.abilityName} ({effect.damageType})");
 
         float skillLevel = GetLinkedSkillLevel(caster, ability);
         float skillMultiplier = 1f + (skillLevel * attributeBonusPerPoint);
-        Debug.Log($"[CalculateRawDamage] Skill Multiplier: {skillMultiplier:F3}");
+       // Debug.Log($"[CalculateRawDamage] Skill Multiplier: {skillMultiplier:F3}");
 
         float rawEffectDamage = effect.baseValue * effect.scalingFactor * skillMultiplier;
-        Debug.Log($"[CalculateRawDamage] Base + Skill = {rawEffectDamage:F2}");
+      //  Debug.Log($"[CalculateRawDamage] Base + Skill = {rawEffectDamage:F2}");
 
         var dmgAttr = AttributeHelper.GetDamageAttribute(caster, effect.damageType);
         if (dmgAttr != null)
         {
             float dmgBonus = dmgAttr.CurrentValue * attributeBonusPerPoint;
             rawEffectDamage *= (1f + dmgBonus);
-            Debug.Log($"[CalculateRawDamage] Damage Attribute ({dmgAttr.AttributeName}) bonus: +{dmgBonus:P1}");
+         //   Debug.Log($"[CalculateRawDamage] Damage Attribute ({dmgAttr.AttributeName}) bonus: +{dmgBonus:P1}");
         }
 
         if (effect.primaryEffectAttribute != PrimaryAttributeType.None)
@@ -259,11 +258,11 @@ public class CombatManager : MonoBehaviour
             {
                 float primaryBonus = primaryAttr.CurrentValue * attributeBonusPerPoint;
                 rawEffectDamage *= (1f + primaryBonus);
-                Debug.Log($"[CalculateRawDamage] Primary Attribute ({primaryAttr.AttributeName}) bonus: +{primaryBonus:P1}");
+             //   Debug.Log($"[CalculateRawDamage] Primary Attribute ({primaryAttr.AttributeName}) bonus: +{primaryBonus:P1}");
             }
         }
 
-        Debug.Log($"[CalculateRawDamage] FINAL Raw Damage: {rawEffectDamage:F2}");
+    //    Debug.Log($"[CalculateRawDamage] FINAL Raw Damage: {rawEffectDamage:F2}");
         return rawEffectDamage;
     }
 
@@ -310,10 +309,10 @@ public class CombatManager : MonoBehaviour
     {
         if (target?.Attributes?.Health == null) return;
 
-        float finalAmount = ApplyDamageReductions(target, amount, damageType, defenceAttribute, logReductions: true);
+        float finalAmount = ApplyDamageReductions(target, amount, damageType, defenceAttribute, logReductions: false);
 
-        Debug.Log($"[ApplyDamage] Incoming damage: {finalAmount:F2} | Type: {damageType}");
-        Debug.Log($"[ApplyDamage] Final damage after all reductions: {finalAmount:F2}");
+//        Debug.Log($"[ApplyDamage] Incoming damage: {finalAmount:F2} | Type: {damageType}");
+//        Debug.Log($"[ApplyDamage] Final damage after all reductions: {finalAmount:F2}");
 
         // === FLOATING DAMAGE TEXT ===
         if (FloatingTextManager.Instance != null)
@@ -380,19 +379,20 @@ public class CombatManager : MonoBehaviour
     #region Death Handling
     private void HandleDeath(BaseEntity killer, BaseEntity victim)
     {
-        if (victim == null) return;
-
-        Debug.Log($"[Combat] {victim.EntityName} defeated!");
-
-        if (killer != null && killer is CharacterEntity)
+        if (victim == null || !victim.IsAlive) 
         {
-            float xpReward = victim.Attributes.EntityPower;
-            XPManager.Instance.DistributeXP(killer, xpReward);
-            MessageManager.Instance?.Log($"{killer.EntityName} gained ~{xpReward:F0} XP from the kill!");
+            Debug.Log($"[CombatManager] HandleDeath skipped - victim null or already dead");
+            return;
         }
 
-        EntityManager.Instance?.EntityList.Remove(victim);
-        Destroy(victim.gameObject, deathDestroyDelay);
+        Debug.Log($"[CombatManager] HandleDeath called → {victim.EntityName} (Team {victim.EntityTeam}) Health: {victim.Attributes.Health.CurrentValue}");
+
+        victim.Die(killer);
+
+        if (killer is CharacterEntity charKiller && victim.Attributes != null)
+        {
+            XPManager.Instance.DistributeXP(killer, victim.Attributes.EntityPower);
+        }
     }
     #endregion
 }

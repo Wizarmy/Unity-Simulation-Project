@@ -111,6 +111,12 @@ public class EntityAttributes : MonoBehaviour
             life.SetCurrentValueToMaxValue();
         }
     }
+    
+    public void ResetAllToBase()
+    {
+        SetAllLifeAttributeToMax();
+        RefreshAttributes();
+    }
 
     /// <summary>
     /// Calculates Entity Power as the average of all Primary Attributes' CurrentValue

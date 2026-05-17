@@ -17,7 +17,7 @@ public class SimulationScene : MonoBehaviour
 
     private void Start()
     {
-      GameManager.Instance.InitializeGame();
+      GameManager.Instance.InitializeGame(true);
     }
 
     private void SetupButtons()

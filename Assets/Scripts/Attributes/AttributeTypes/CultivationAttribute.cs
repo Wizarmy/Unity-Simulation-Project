@@ -6,4 +6,5 @@ public class CultivationAttribute : BaseAttribute
         AttributeType=AttributeTypeEnum.Cultivation;
         AttributeLevel.SetLevelingCurve(1000000f,1.5f);
     }
+    
 }

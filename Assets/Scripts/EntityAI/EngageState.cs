@@ -12,7 +12,7 @@ public class EngageState : AIState
 
     public override void Update()
     {
-        if (!AI.CombatTarget)
+        if (!AI.CombatTarget || !AI.CombatTarget.IsAlive)
         {
             AI.EnterChase();
             return;
@@ -32,12 +32,13 @@ public class EngageState : AIState
             AI.BackAway(AI.CombatTarget);
         }
 
-        // === Try to use abilities ===
         TryUseAbility();
     }
 
     private void TryUseAbility()
     {
+        if (!AI.CombatTarget || !AI.CombatTarget.IsAlive) return;
+        
         if (Time.time < _nextAbilityCheckTime) 
             return;
 

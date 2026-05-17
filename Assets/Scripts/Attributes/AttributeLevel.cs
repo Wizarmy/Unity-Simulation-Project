@@ -49,7 +49,7 @@ public class AttributeLevel
         LevelExpMultiplier = Mathf.Max(1.01f, levelExpMultiplier);
         ResetToInitialCurve();
 
-        MessageManager.Instance.Log($"[AttributeLevel] Curve updated → Initial: {InitialExpToNextLevel} | x{LevelExpMultiplier:F2}");
+     //   MessageManager.Instance.Log($"[AttributeLevel] Curve updated → Initial: {InitialExpToNextLevel} | x{LevelExpMultiplier:F2}");
     }
 
     private void ResetToInitialCurve() => ExpToNextLevel = InitialExpToNextLevel;
@@ -132,12 +132,32 @@ public class AttributeLevel
 
     public void SetLevel(int targetLevel)
     {
+        if (targetLevel == CurrentLevel) return;
+
+        int oldLevel = CurrentLevel;
         CurrentLevel = Mathf.Max(0, targetLevel);
         CurrentLevelExp = 0f;
         ExpToNextLevel = CalculateExpRequiredForLevel(CurrentLevel, InitialExpToNextLevel, LevelExpMultiplier);
         TotalExpGained = CalculateTotalExpForLevel(CurrentLevel, InitialExpToNextLevel, LevelExpMultiplier);
         ProgressPercentage = ProgressPercentageRaw;
 
+        // Force level-up events for every level we jumped
+        if (CurrentLevel > oldLevel)
+        {
+            for (int i = oldLevel; i < CurrentLevel; i++)
+            {
+                OnLevelUp?.Invoke();        // ← THIS WAS MISSING
+            }
+        }
+
+        OnExpChanged?.Invoke();
+
+        //Debug.Log($"[AttributeLevel] SetLevel → {CurrentLevel} (fired {CurrentLevel - oldLevel} OnLevelUp events)");
+    }
+    
+    public void ForceFullUpdate()
+    {
+        OnLevelUp?.Invoke();
         OnExpChanged?.Invoke();
     }
 }

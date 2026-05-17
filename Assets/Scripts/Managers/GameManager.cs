@@ -35,24 +35,87 @@ public class GameManager : MonoBehaviour
     [Header("CombatStatus")]
     
     [field:SerializeField] public bool IsInCombat { get; private set; }
+    public int LastWinningTeam { get; private set; } = -1;
+    
+    [Header("Simulation Speed")]
+    [SerializeField] private float _simulationSpeed = 10f;
+    public float SimulationSpeed 
+    { 
+        get => _simulationSpeed; 
+        set 
+        {
+            _simulationSpeed = Mathf.Clamp(value, 0.1f, 200f);
+            Time.timeScale = _simulationSpeed;
+            Debug.Log($"[GameManager] Simulation speed set to {_simulationSpeed}x");
+        }
+    }
+
+    public void SetSimulationSpeed(float newSpeed)
+    {
+        SimulationSpeed = newSpeed;
+    }
+
+    [Header("Death Settings")]
+    [field: SerializeField] public float DeathDestroyDelay { get; private set; } = 0.2f;
+    
+    public void EndCombat(int winningTeam = -1)
+    {
+        if (!IsInCombat) return;
+
+        IsInCombat = false;
+        LastWinningTeam = winningTeam; 
+        OnCombatStateChanged?.Invoke(false);
+
+        string message;
+        if (winningTeam == 0)
+            message = "Player Team Wins!";
+        else if (winningTeam == 1)
+            message = "Enemy Team Wins!";
+        else
+            message = "Draw - Everyone is dead!";
+
+        Debug.Log($"[GameManager] Combat Ended! {message}");
+
+        // Show on screen
+        MessageManager.Instance.Log(message);
+
+        // Optional: Disable AI on remaining entities, freeze input, etc.
+    }
     
     
     // Event for other systems to listen to combat state changes
     public event Action<bool> OnCombatStateChanged;
     
-    public void InitializeGame()
+    public void InitializeGame(bool spawnDefaultEntities = false)
     {
         ResizeGround();
-        CreateEntities();
+
+        if (spawnDefaultEntities)
+            CreateEntities();
     }
 
     public void ToggleInCombatState()
     {
         IsInCombat = !IsInCombat;
+        if (!IsInCombat)
+            SimulationSpeed = 1f;
+        
         Debug.Log($"[SimulationManager] Combat {(IsInCombat ? "STARTED" : "STOPPED")}");
         OnCombatStateChanged?.Invoke(IsInCombat);
-        
+    }
+    
+    public void SetCombatState(bool inCombat)
+    {
+        if (IsInCombat == inCombat) 
+        {
+            Debug.Log($"[GameManager] Combat state already {inCombat}, no change.");
+            return;
+        }
 
+        IsInCombat = inCombat;
+        OnCombatStateChanged?.Invoke(inCombat);
+    
+        Debug.Log($"[GameManager] Combat state set to {(inCombat ? "STARTED" : "ENDED")}");
     }
     
     private void CreateEntities()

@@ -9,10 +9,14 @@ public class ChaseState : AIState
 
     public override void Update()
     {
-        if (!AI.CombatTarget)
+        if (!AI.CombatTarget || !AI.CombatTarget.IsAlive)
         {
             AI.FindNearestEnemy();
-            if (!AI.CombatTarget) return;
+            if (!AI.CombatTarget) 
+            {
+                AI.EnterIdle();   // or Chase again
+                return;
+            }
         }
 
         AI.MoveTowardsTarget(AI.CombatTarget);
@@ -20,6 +24,6 @@ public class ChaseState : AIState
 
         var distance = Vector3.Distance(AI.BodyTransform.position, AI.CombatTarget.Body.transform.position);
         if (distance <= 3.0f)
-           AI.EnterEngage();
+            AI.EnterEngage();
     }
 }

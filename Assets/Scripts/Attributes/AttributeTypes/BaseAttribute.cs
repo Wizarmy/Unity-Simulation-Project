@@ -68,9 +68,13 @@ public abstract class BaseAttribute : MonoBehaviour
         }
     }
     
-    // NEW: Virtual hooks – this is where all the magic happens
     protected virtual float GetLevelBonus()
     {
+        // Cultivation is special - it always applies its level as a multiplier source
+        if (AttributeType == AttributeTypeEnum.Cultivation)
+            return AttributeLevel.CurrentLevel;
+
+        // Normal behavior for other attributes
         return AttributeCanLevel ? AttributeLevel.CurrentLevel : 0f;
     }
 

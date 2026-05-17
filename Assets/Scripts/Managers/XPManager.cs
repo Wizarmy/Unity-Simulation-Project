@@ -13,7 +13,6 @@ public class XPManager : MonoBehaviour
             return;
         }
         _instance = this;
-        DontDestroyOnLoad(gameObject);
     }
 
     /// <summary>
@@ -85,6 +84,6 @@ public class XPManager : MonoBehaviour
         float xpAmount = totalXP * (percent / 100f);
         attribute.AddExperience(xpAmount);
 
-        Debug.Log($"[XP] {entity.EntityName} → {attribute.AttributeName} +{xpAmount:F1} XP ({percent:F1}%)");
+//        Debug.Log($"[XP] {entity.EntityName} → {attribute.AttributeName} +{xpAmount:F1} XP ({percent:F1}%)");
     }
 }

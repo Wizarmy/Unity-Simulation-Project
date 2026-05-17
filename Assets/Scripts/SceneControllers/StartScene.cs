@@ -17,6 +17,7 @@ public class StartSceneManager : MonoBehaviour
 
     [Header("Buttons")]
     [SerializeField] private Button startSimulationButton;
+    [SerializeField] private Button startTutorialChapter1Button;
     
     private void Awake()
     {
@@ -26,6 +27,9 @@ public class StartSceneManager : MonoBehaviour
 
         if (startSimulationButton != null)
             startSimulationButton.onClick.AddListener(StartSimulation);
+        
+        if (startTutorialChapter1Button != null)
+            startTutorialChapter1Button.onClick.AddListener(StartTutorialChapter1);
     }
     
     private void SetupSliders()
@@ -86,6 +90,12 @@ public class StartSceneManager : MonoBehaviour
         SceneManager.Instance.LoadScene("SimulationScene");
     }
     
+    public void StartTutorialChapter1()
+    {
+        Debug.Log("[UIManager] Loading Tutorial Chapter 1...");
+        UnityEngine.SceneManagement.SceneManager.LoadScene("TutorialChapter1");
+    }
+    
     private void OnDestroy()
     {
         if (friendsSlider != null)
@@ -96,6 +106,9 @@ public class StartSceneManager : MonoBehaviour
 
         if (startSimulationButton != null)
             startSimulationButton.onClick.RemoveListener(StartSimulation);
+        
+        if (startTutorialChapter1Button != null)
+            startTutorialChapter1Button.onClick.RemoveListener(StartTutorialChapter1);
     }
     
 }

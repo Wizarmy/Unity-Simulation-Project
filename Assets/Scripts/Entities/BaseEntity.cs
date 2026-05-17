@@ -21,13 +21,23 @@ public abstract class BaseEntity : MonoBehaviour
     [Header("Abilities")]
     [field: SerializeField] public Transform AbilityContainer { get; protected set; }
     [field: SerializeField] public List<ActiveAbility> ActiveAbilities { get; protected set; } = new List<ActiveAbility>();
+    
+    [Header("Lifecycle")]
+    [field: SerializeField] public bool IsAlive { get; private set; } = true; 
+    public bool IsPersistent { get; set; } = false;
 
     /// <summary>
     /// Fired whenever abilities are added, removed, or cleared.
     /// Useful for UI to refresh ability buttons.
     /// </summary>
     public event Action OnAbilitiesChanged;
+    public event Action<BaseEntity> OnDied;
 
+    /// <summary>
+    /// Fired when this entity has finished all setup/reset operations 
+    /// (attributes maxed, AI ready, abilities added, etc.)
+    /// </summary>
+    public event Action<BaseEntity> OnEntitySetupComplete;
 
     #region Initialization
     public virtual void InitializeEntity(string entityName, AvatarBody avatarBody,
@@ -39,7 +49,6 @@ public abstract class BaseEntity : MonoBehaviour
         SetupAvatar(avatarBody, entityScale, team);
         InitializeAttributes();
 
-        // Create Ability Container if it doesn't exist
         if (AbilityContainer == null)
         {
             var containerGo = new GameObject("AbilityContainer");
@@ -47,19 +56,54 @@ public abstract class BaseEntity : MonoBehaviour
             AbilityContainer.SetParent(transform);
         }
 
-        // Wait for attribute dependencies before setting life to max
         StartCoroutine(DelayedSetLifeToMax());
 
         AI = gameObject.AddComponent<EntityAI>();
         AI.Initialize(this);
 
-        // Default starting ability
         AddAbility("Punch");
         AddAbility("Dodge");
-        
+
+        // === DELAYED signal so subscribers have time to register ===
+        StartCoroutine(DelayedSetupComplete());
     }
     #endregion
 
+    #region Reset
+    public virtual void FullReset(Vector3 newPosition)
+    {
+        Body.transform.position = newPosition;
+        gameObject.SetActive(true);
+
+        BringToLife();
+
+        if (Attributes != null)
+            Attributes.ResetAllToBase();
+
+        AI?.ForceIdle();
+
+        ClearAllAbilities();
+        AddAbility("Punch");
+        AddAbility("Dodge");
+
+        // Re-register with EntityManager in case it was removed
+        if (!EntityManager.Instance.EntityList.Contains(this))
+        {
+            EntityManager.Instance.EntityList.Add(this);
+            Debug.Log($"[BaseEntity] Re-added {EntityName} to EntityManager list");
+        }
+
+        // Delayed signal
+        StartCoroutine(DelayedSetupComplete());
+    }
+    #endregion
+    
+    private IEnumerator DelayedSetupComplete()
+    {
+        yield return null;           // Wait one frame so subscribers can hook up
+        OnEntitySetupComplete?.Invoke(this);
+        Debug.Log($"[BaseEntity] Setup complete for {EntityName}");
+    }
 
     #region Ability Management
     public void AddAbility(string abilityName)
@@ -71,21 +115,16 @@ public abstract class BaseEntity : MonoBehaviour
             return;
         }
 
-        // Ensure linked skill exists
         if (!string.IsNullOrEmpty(data.linkedSkillName))
             Attributes.AddSkill(data.linkedSkillName);
 
-        // Create dedicated child GameObject under AbilityContainer
         var abilityGo = new GameObject(data.abilityName);
         abilityGo.transform.SetParent(AbilityContainer);
 
-        // Add runtime component
         var activeAbility = abilityGo.AddComponent<ActiveAbility>();
         activeAbility.Initialize(this, data);
 
         ActiveAbilities.Add(activeAbility);
-
-        Debug.Log($"[BaseEntity] ✅ Added ability '{data.abilityName}' to {EntityName}");
 
         OnAbilitiesChanged?.Invoke();
     }
@@ -95,9 +134,7 @@ public abstract class BaseEntity : MonoBehaviour
         foreach (var ability in ActiveAbilities)
         {
             if (ability != null && ability.gameObject != null)
-            {
                 Destroy(ability.gameObject);
-            }
         }
 
         ActiveAbilities.Clear();
@@ -111,9 +148,7 @@ public abstract class BaseEntity : MonoBehaviour
         for (var i = ActiveAbilities.Count - 1; i >= 0; i--)
         {
             var ability = ActiveAbilities[i];
-            if (ability == null || 
-                ability.Data == null || 
-                ability.Data.abilityName != abilityName)
+            if (ability == null || ability.Data == null || ability.Data.abilityName != abilityName)
                 continue;
 
             Destroy(ability.gameObject);
@@ -126,16 +161,42 @@ public abstract class BaseEntity : MonoBehaviour
     }
     #endregion
 
+    #region Death Handling
+    public virtual void Die(BaseEntity killer = null)
+    {
+        if (!IsAlive) return;
+
+        IsAlive = false;
+
+        Debug.Log($"[BaseEntity] {EntityName} (Team {EntityTeam}) has died!");
+
+        if (AI != null)
+            AI.enabled = false;
+
+        OnDied?.Invoke(this);
+    }
+
+    public virtual void BringToLife()
+    {
+        if (IsAlive) return;
+
+        IsAlive = true;
+
+        Debug.Log($"[BaseEntity] {EntityName} brought back to life.");
+
+        if (AI != null)
+            AI.enabled = true;
+
+        Attributes?.SetAllLifeAttributeToMax();
+    }
+    #endregion
 
     #region Private Helpers
     private IEnumerator DelayedSetLifeToMax()
     {
         yield return null;
         yield return null;
-
-        if (!Attributes) yield break;
-
-        Attributes.SetAllLifeAttributeToMax();
+        Attributes?.SetAllLifeAttributeToMax();
     }
 
     private void SetupAvatar(AvatarBody avatarBody, float scale, int team)
@@ -146,16 +207,17 @@ public abstract class BaseEntity : MonoBehaviour
     }
     #endregion
 
-
-    // ====================== CLEANUP ======================
     protected virtual void OnDestroy()
     {
-        if (AI != null)
+        if (IsPersistent)
         {
-            Destroy(AI);
+            Debug.Log($"[BaseEntity] Skipping OnDestroy cleanup for persistent entity: {EntityName}");
+            return;
         }
 
-        // Automatic cleanup of all abilities
+        if (AI != null)
+            Destroy(AI);
+
         ClearAllAbilities();
     }
 

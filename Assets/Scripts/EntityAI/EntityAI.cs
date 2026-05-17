@@ -6,14 +6,15 @@ public class EntityAI : MonoBehaviour
 {
     [Header("AI Settings")]
     [SerializeField] private float maxHeadTurnAngle = 75f;
+
     [Header("AI Links")]
     [field: SerializeField] public BaseEntity ParentEntity { get; protected set; }
-    [field:SerializeField] public Transform BodyTransform { get; protected set; }
-    [field:SerializeField]public float CurrentMovementSpeed{ get; protected set; } = 5f;
-    [field:SerializeField]public float CurrentTurnSpeed{ get; protected set; } = 120f;
-    [field:SerializeField] public Transform HeadTransform{ get; protected set; }
-    [field:SerializeField] public int Team{ get; protected set; }
-    
+    [field: SerializeField] public Transform BodyTransform { get; protected set; }
+    [field: SerializeField] public float CurrentMovementSpeed { get; protected set; } = 5f;
+    [field: SerializeField] public float CurrentTurnSpeed { get; protected set; } = 120f;
+    [field: SerializeField] public Transform HeadTransform { get; protected set; }
+    [field: SerializeField] public int Team { get; protected set; }
+
     public List<ActiveAbility> Abilities => ParentEntity?.ActiveAbilities;
 
     // States
@@ -21,35 +22,36 @@ public class EntityAI : MonoBehaviour
     private readonly IdleState _idleState = new IdleState();
     private readonly ChaseState _chaseState = new ChaseState();
     private readonly EngageState _engageState = new EngageState();
-    
+
     [field: SerializeField] public BaseEntity CombatTarget { get; private set; }
-   
+
     private Coroutine _targetSearchCoroutine;
 
     public void Initialize(BaseEntity entity)
     {
         ParentEntity = entity;
         Team = entity.EntityTeam;
-        
-        HeadTransform= ParentEntity.Body.HeadTransform;
-        BodyTransform = ParentEntity.Body.transform;
 
+        HeadTransform = ParentEntity.Body.HeadTransform;
+        BodyTransform = ParentEntity.Body.transform;
 
         CurrentMovementSpeed = 5f;
         CurrentTurnSpeed = 120f;
-        
+
         GameManager.Instance.OnCombatStateChanged += OnCombatStateChanged;
-        
-        // Initialize states
+
         _idleState.Initialize(this);
         _chaseState.Initialize(this);
         _engageState.Initialize(this);
 
         EnterState(_idleState);
     }
-    
+
     private void OnCombatStateChanged(bool inCombat)
     {
+        if (ParentEntity == null || !ParentEntity.IsAlive)
+            return;
+
         if (inCombat)
         {
             EnterState(_chaseState);
@@ -57,6 +59,7 @@ public class EntityAI : MonoBehaviour
         }
         else
         {
+            CombatTarget = null;
             EnterState(_idleState);
             StopTargetSearch();
         }
@@ -70,20 +73,19 @@ public class EntityAI : MonoBehaviour
     private void StopTargetSearch()
     {
         if (_targetSearchCoroutine == null) return;
-        StopCoroutine(_targetSearchCoroutine);
+        try { StopCoroutine(_targetSearchCoroutine); } catch { }
         _targetSearchCoroutine = null;
     }
 
     private IEnumerator TargetSearchRoutine()
     {
-        while (true)          
+        while (true)
         {
             FindNearestEnemy();
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.8f);   // Slightly faster than before
         }
     }
-    
-    
+
     public void EnterIdle() => EnterState(_idleState);
     public void EnterChase() => EnterState(_chaseState);
     public void EnterEngage() => EnterState(_engageState);
@@ -101,19 +103,22 @@ public class EntityAI : MonoBehaviour
 
     private void Update()
     {
+        if (ParentEntity == null || !ParentEntity.IsAlive)
+        {
+            enabled = false;
+            return;
+        }
         _currentState?.Update();
     }
 
-    // ====================== Core Methods (Used by States) ======================
+    // ====================== Core Methods ======================
 
     public void LookAtTarget(Vector3 targetPosition)
     {
-        // Body - upright only
         if (BodyTransform)
         {
             var dir = (targetPosition - BodyTransform.position).normalized;
             dir.y = 0f;
-
             if (dir.sqrMagnitude > 0.001f)
             {
                 var targetRot = Quaternion.LookRotation(dir);
@@ -122,12 +127,10 @@ public class EntityAI : MonoBehaviour
             }
         }
 
-        // Head with limits
         if (!HeadTransform) return;
 
         var headDir = (targetPosition - HeadTransform.position).normalized;
         var targetHeadRot = Quaternion.LookRotation(headDir);
-
         var bodyRot = BodyTransform.rotation;
         var relativeRot = Quaternion.Inverse(bodyRot) * targetHeadRot;
 
@@ -152,7 +155,6 @@ public class EntityAI : MonoBehaviour
 
         var direction = target.Body.transform.position - BodyTransform.position;
         var distance = direction.magnitude;
-
         if (distance <= 3f) return;
 
         var moveDir = direction.normalized;
@@ -165,7 +167,6 @@ public class EntityAI : MonoBehaviour
 
         var direction = target.Body.transform.position - BodyTransform.position;
         var moveDir = -direction.normalized;
-
         BodyTransform.position += moveDir * (CurrentMovementSpeed * 0.7f * Time.deltaTime);
     }
 
@@ -176,7 +177,7 @@ public class EntityAI : MonoBehaviour
 
         foreach (var entity in EntityManager.Instance.EntityList)
         {
-            if (!entity || entity == ParentEntity || entity.EntityTeam == Team)
+            if (!entity || !entity.IsAlive || entity == ParentEntity || entity.EntityTeam == Team)
                 continue;
 
             var distance = Vector3.Distance(BodyTransform.position, entity.Body.transform.position);
@@ -188,5 +189,17 @@ public class EntityAI : MonoBehaviour
             }
         }
     }
-    
+
+    // ====================== Reset Helpers ======================
+
+    public void ForceIdle()
+    {
+        if (ParentEntity == null) return;
+
+        CombatTarget = null;
+        StopTargetSearch();
+        EnterState(_idleState);
+
+        Debug.Log($"[EntityAI] ForceIdle called on {ParentEntity.EntityName}");
+    }
 }
